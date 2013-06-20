@@ -1,4 +1,7 @@
 Scanbech::Application.routes.draw do
+  resources :machines
+
+
   resources :moulds
 
 

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130620070937) do
+ActiveRecord::Schema.define(:version => 20130620125056) do
 
   create_table "machine_statuses", :force => true do |t|
     t.string   "name"
@@ -24,6 +24,19 @@ ActiveRecord::Schema.define(:version => 20130620070937) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end
+
+  create_table "machines", :force => true do |t|
+    t.string   "name"
+    t.date     "registration_date"
+    t.integer  "machine_type_id"
+    t.date     "birthday"
+    t.float    "power_consumption"
+    t.float    "plastification_capacity"
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "machines", ["machine_type_id"], :name => "index_machines_on_machine_type_id"
 
   create_table "moulds", :force => true do |t|
     t.string   "name"
